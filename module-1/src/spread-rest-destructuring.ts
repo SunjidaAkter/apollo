@@ -17,7 +17,7 @@ const greetFriend = (...friends: string[]): void =>
 greetFriend("abul", "kabul", "babul", "bangla vai"); //etar khetre abar bondhu komano barano jabe na... tai nicher niom follow kori
 
 //array and object destructuring
-//etear khetre type declare kora jabe na
+//egular khetre type declare kora jabe na
 const myBestFriend = {
   fullName: "mejba",
   age: 24,
