@@ -1,0 +1,7 @@
+* nvm means node version manager.
+* akek somoi akek rokom node version use korar jonno nvm use kori amra
+* nvm list command ti terminal e dile pc te install kora node version gulo dakha jai
+* nvm use 20.0.0 command ti terminal e dile pc te node er 20.0.0 version ta use kora jabe
+* ts-node-dev akta package jeta ts k node e chalate help kore
+* tsconfig e rootDir e src(etate ts er file gulo rakhsi) path set korte hobe
+* tsconfig e outDir e dist(etate ts theke converted js er file gulo rakhsi) path set korte hobe
