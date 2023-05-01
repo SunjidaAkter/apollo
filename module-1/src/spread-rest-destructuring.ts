@@ -6,7 +6,22 @@ myFriend.push(...newFriends);
 console.log(myFriend);
 
 //rest parameter
-const greetFriend = (friend1: string, friend2: string, friend3: string): void =>
-  console.log(`Hi ${friend1}\nHi ${friend2}\nHi ${friend3}\n`);
+// const greetFriend = (friend1: string, friend2: string, friend3: string): void =>
+//   console.log(`Hi ${friend1}\nHi ${friend2}\nHi ${friend3}\n`);
 
-greetFriend("abul", "kabul", "babul");
+// greetFriend("abul", "kabul", "babul");//etar khetre abar bondhu komano barano jabe na... tai nicher niom follow kori
+
+const greetFriend = (...friends: string[]): void =>
+  friends.forEach((friend) => console.log(`Hi ${friend}`));
+
+greetFriend("abul", "kabul", "babul", "bangla vai"); //etar khetre abar bondhu komano barano jabe na... tai nicher niom follow kori
+
+//array and object destructuring
+//etear khetre type declare kora jabe na
+const myBestFriend = {
+  fullName: "mejba",
+  age: 24,
+};
+const [bestfriend] = myFriend;
+const { fullName } = myBestFriend;
+console.log(fullName);
