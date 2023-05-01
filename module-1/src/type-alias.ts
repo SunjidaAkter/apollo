@@ -20,4 +20,15 @@ const crush2: CrushType = {
 type CrushMarriedType = boolean;
 const isCrushMarried: CrushMarriedType = false;
 
-// const calculate=(number1:number,number2:number)
+type OperationType = (x: number, y: number) => number;
+const calculate = (
+  number1: number,
+  number2: number,
+  operation: OperationType
+) => {
+  return operation(number1, number2);
+};
+calculate(20, 20, (x, y) => x + y);
+console.log(calculate(30, 20, (x, y) => x + y));
+console.log(calculate(30, 20, (x, y) => x - y));
+console.log(calculate(30, 20, (x, y) => x * y));
