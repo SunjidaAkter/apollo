@@ -1,5 +1,6 @@
 //normal function
-function add(num1: number, num2: number): number {
+function add(num1: number, num2: number = 10): number {
+  //default parameter use kora jai last parameter e
   return num1 + num2;
 }
 
