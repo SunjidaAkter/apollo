@@ -12,7 +12,7 @@ type JuniorDeveloper = NoobDeveloper & {
   experience: number;
 };
 
-enum level {
+enum Level { //enum is not recommended
   junior = "junior",
   mid = "mid",
   senior = "senior",
@@ -29,10 +29,17 @@ const newDeveloper: NoobDeveloper | JuniorDeveloper = {
   experience: 1,
 };
 
+// const developer: NextDeveloper = {
+//   name: "Next Bhai",
+//   expertise: "Typescript",
+//   experience: 3,
+//   leadershipExperience: 7,
+//   level: Level.junior,//eta enum type er jonno kora
+// };
 const developer: NextDeveloper = {
   name: "Next Bhai",
   expertise: "Typescript",
   experience: 3,
   leadershipExperience: 7,
-  level: level.junior,
+  level: "mid",
 };
