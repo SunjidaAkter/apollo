@@ -3,9 +3,14 @@ type User = {
   age: number;
 };
 
-const userWithTypeAlias: User = {
+type ExtendUser = User & {
+  role: string;
+};
+
+const userWithTypeAlias: ExtendUser = {
   name: "Type Alias",
   age: 122,
+  role: "no one",
 };
 
 interface IUser {
@@ -32,3 +37,30 @@ const user1: IExtendedUser = {
   age: 20,
   role: "Unknown",
 };
+
+// js e function, object and array egula object type data..
+//alias type for function//function er jonno ei alias type e recommended
+type funType = (x: number, y: number) => number;
+const fun: funType = (x, y) => x + y;
+
+//interface for function
+interface IFun {
+  (x: number, y: number): number;
+}
+const fun1: IFun = (x, y) => x + y;
+
+//array
+// const rollNumber:number[]=[1,3,6];//normally
+
+//array
+//type alias
+type rollNumberType = number[];
+const rollNumber: rollNumberType = [1, 3, 6];
+
+//interface
+interface IRollNumber {
+  [index: number]: number | string;
+}
+const rollNumbe2r: IRollNumber = [1, "3", 6];
+
+//just object r class er khetre amra interface dekhbo r baki khetre amra type alias use korbo

@@ -20,6 +20,10 @@ const crush2: CrushType = {
 type CrushMarriedType = boolean;
 const isCrushMarried: CrushMarriedType = false;
 
+//alias type for function
+type funType = (x: number, y: number) => number;
+const fun: funType = (x, y) => x + y;
+
 type OperationType = (x: number, y: number) => number;
 const calculate = (
   number1: number,
