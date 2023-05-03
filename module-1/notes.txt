@@ -1,3 +1,6 @@
+***************************************************************************************************
+
+
 * nvm means node version manager.
 * akek somoi akek rokom node version use korar jonno nvm use kori amra
 * nvm list command ti terminal e dile pc te install kora node version gulo dakha jai
@@ -5,3 +8,39 @@
 * ts-node-dev akta package jeta ts k node e chalate help kore
 * tsconfig e rootDir e src(etate ts er file gulo rakhsi) path set korte hobe
 * tsconfig e outDir e dist(etate ts theke converted js er file gulo rakhsi) path set korte hobe
+
+
+***************************************************************************************************
+
+
+Installation required:
+Nvm checked version: nvm -v
+TypeScript
+npm install -g typescript,
+checked version tsc –v
+Then create a ts file index.ts and run tsc .\index.ts.
+tsc .\index.ts, it just convert the index.ts file to equivalent index.js file
+Note: tsc .\index.ts couldn’t run the index.ts file.
+So we should run the index.js file to see the output.
+node .\index.js
+Note: node couldn’t run ts file
+So If we wanna run the ts file directly then have to install ts-node-dev
+We can see the changes to run for all time index.js files using nodemon and run index.ts after changes
+Create a package.json to run npm init to install different packages
+Add nodemon script in package.json
+Then run npm start in the terminal
+It’s complicated and needs to run two terminals at a time.
+So we use ts-node-dev which can run the ts file in the node environment and provide output.
+ts-node-dev
+npm i ts-node-dev
+Then replace the start script in package json
+Then run the npm start you will see the output
+Create tsConfig.json tsc –init
+Conversion method ts to js
+In general ts files are stored in the src folder and js files are stored dist folder.
+To store these files then we need to set rootDir line-29
+and outDir line-58 folder directory in the tsConfig.ts file
+Then run only tsc command then we see the js file in the dist folder
+
+
+************************************************************************************************************
