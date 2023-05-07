@@ -1,4 +1,6 @@
-class Parent {
+//here person is a parent class and teacher and students are child class ... child class era parent clASS theke property inherit korse
+
+class Person {
   name: string;
   age: number;
   address: string;
@@ -12,7 +14,7 @@ class Parent {
   }
 }
 
-class Student extends Parent {
+class Student extends Person {
   //   name: string;//parents type extends korai eguli r lagbe na
   //   age: number;//parents type extends korai eguli r lagbe na
   //   address: string;//parents type extends korai eguli r lagbe na
@@ -27,7 +29,7 @@ class Student extends Parent {
   //   }
 }
 const student1 = new Student("sun", 34, "dhaka");
-class Teacher extends Parent {
+class Teacher extends Person {
   // name:string//parents type extends korai eguli r lagbe na
   // age:number
   // address:string
