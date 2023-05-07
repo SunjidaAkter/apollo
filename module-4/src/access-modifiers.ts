@@ -1,7 +1,7 @@
 class BankAccount {
   public id: number;
-  public name: string;
-  private balance: number;
+  public name: string; //public thakle sob jaiga theke access kora jai
+  private balance: number; //private er karone eta just ei class ei access kora jabe r kothao theke access kora jabe na
   protected student_balance: number; //protectected er karone eta or child class thekeo access korte parbo but class er baire access korte parbo na
   constructor(
     id: number,
