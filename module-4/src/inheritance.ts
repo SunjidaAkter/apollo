@@ -48,4 +48,4 @@ class Teacher extends Parent {
   }
 }
 const teacher = new Teacher("sun", 56, "usa", "head");
-console.log(teacher);
+console.log(teacher.takeClasses(3));
