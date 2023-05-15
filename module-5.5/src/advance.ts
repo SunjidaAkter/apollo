@@ -12,7 +12,6 @@ interface IMethod {
   fullName(): string;
 }
 type model = Model<IProperty, IMethod>;
-
 class User implements model {
   data: IProperty;
   methods: IMethod;
