@@ -6,4 +6,4 @@ const rollNumbers: number[] = [55, 8, 4];
 const persons = ["abul", "babul", 56, true];
 
 //for fixed mixed array
-const user: [number, boolean] = [12, true]; //touple
+const user: [number, boolean] = [12, true]; //tuple

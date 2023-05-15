@@ -14,7 +14,7 @@ console.log(myFriend);
 const greetFriend = (...friends: string[]): void =>
   friends.forEach((friend) => console.log(`Hi ${friend}`));
 
-greetFriend("abul", "kabul", "babul", "bangla vai"); //etar khetre abar bondhu komano barano jabe na... tai nicher niom follow kori
+greetFriend("abul", "kabul", "babul", "bangla vai");
 
 //array and object destructuring
 //egular khetre type declare kora jabe na

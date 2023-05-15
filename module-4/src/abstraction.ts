@@ -49,7 +49,9 @@ abstract class VehicleClass {
 
   abstract startEngine(): void; //abstract thakle implementation kora lage na ... etake follow kora chhara er ar kono kaj nei
   abstract stopEngine(): void; //abstract thakle implementation kora lage na ... etake follow kora chhara er ar kono kaj nei
-  abstract move(): void; //abstract thakle implementation kora lage na ... etake follow kora chhara er ar kono kaj nei
+  move(): void {
+    console.log("I am moving...");
+  } //abstract thakle implementation kora lage na ... etake follow kora chhara er ar kono kaj nei
 }
 
 class Car extends VehicleClass {
@@ -58,9 +60,6 @@ class Car extends VehicleClass {
   }
   stopEngine(): void {
     console.log("I am stopping engine...");
-  }
-  move(): void {
-    console.log("I am moving...");
   }
 }
 

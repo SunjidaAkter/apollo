@@ -49,5 +49,5 @@ const myInfo = {
   age: 3434,
   salary: 11212,
 };
-const result3 = addMeInCrushMind(myInfo);
+const result3 = addMeInCrushMind(2);
 console.log(result3);
