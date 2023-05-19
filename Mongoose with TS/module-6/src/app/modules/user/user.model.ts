@@ -28,7 +28,7 @@ userSchema.method("fullName", function fullName() {
   );
 });
 userSchema.static("getAdminUsers", async function getAdminUsers() {
-  const admins = await this.find({ role: "admin" });
+  const admins: IUser[] = await this.find({ role: "admin" });
   return admins;
 });
 const User = model<IUser, UserModel>("User", userSchema);

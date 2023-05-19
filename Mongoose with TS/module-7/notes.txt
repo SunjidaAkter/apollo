@@ -1,0 +1,9 @@
+/*
+mongosh command
+->show database
+->use collection-name
+->db.getCollection("practice").find().limit(2)
+*/
+cross-platform GUI (Graphical User Interface) tools for MongoDB
+->Studion 3T
+->No SQL Booster
