@@ -14,5 +14,24 @@ cross-platform GUI (Graphical User Interface) tools for MongoDB
 /*
 query and projection operator of mongoose//query operator dite hole sob somoi curly braces use korte hoi
 ->$eq:db.practice.find({<field>:{$eq:<value>}})
+->$eq:db.practice.find({<field>:{$eq:<value>}},{<field>:1})//datar khali akta field e show korbe,r je field er value milbe just sei data gulai asbe
+->$eq:db.practice.find({<field>:{$eq:<value>}}).projection({<field>:1})//uporer tar poriborte eta dileo ak e kaj hobe
 ->$ne:db.practice.find({<field>:{$ne:<value>}})
+->$ne:db.practice.find({<field>:{$gt:<value>}})
+->$ne:db.practice.find({<field>:{$gte:<value>}})
+->$ne:db.practice.find({<field>:{$lt:<value>}})
+->$ne:db.practice.find({<field>:{$lte:<value>}})
+->$ne:db.practice.find({<field>:{$lte:<value>}}).projection({<field>:1}).sort({age:1})//ascending mane chhoto theke boro vabe sorting hobe
+->$ne:db.practice.find({<field>:{$lte:<value>}}).projection({<field>:1}).sort({age:-1})//descending mane boro theke chhoto vabe sorting hobe
+projection er vitore dui tinta field o chaile nea jai
+->$ne:db.practice.find({<field>:{$gt:<value>,$lt:<value>}})
+->$ne:db.practice.find({<field>:{$int:[<value>,<value>,<value>]}})
+->$ne:db.practice.find({<field>:<value>,<field>:{$nin:[<value1>,<value2>,<value3>]}})//only field er value value1,value2,value3 jukto data gula drkr na hoilei ei operator 
+->$ne:db.practice.find({gender:"Female",age:{$in:[18,23]}})//only 18,23 age er female gula drkr hoilei ei operator 
+ekhane koma die dui tinta field disi, ei system ta ke bole implicit and condition, duita different field er khetre ei implicit use kora jai, kintu ak e field e duita condition dite chaile $and operator use korte hobe eta k abar explicit and condition bole
+->$and:db.practice.find({$and:[{gender:"Female"},{age:{$lt:30}}]}).projection({gender:1,age:1})Female lagbe jader age 18 er chhoto
+->$and:db.practice.find({$and:[{gender:"Female"},{age:{$lt:30}},{"skills.name":"JAVASCRIPT"}]}).projection({gender:1,age:1})Female lagbe jader age 18 er chhoto and skill akta array of object, oi skill er modhe theke name ta nite hobe jar value JAVASCRIPT
+->$or:db.practice.find({$or:[{gender:"Female"},{age:{$lt:30}}]}).projection({gender:1,age:1})Female or jader age 30 er choto ei duitar je kono akta lagbe 
+->$or:db.practice.find({age:{$exist:true}}).projection({age:1})Female or jader age 30 er choto ei duitar je kono akta lagbe 
+
 */
