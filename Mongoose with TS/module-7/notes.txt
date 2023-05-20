@@ -35,9 +35,14 @@ ekhane koma die dui tinta field disi, ei system ta ke bole implicit and conditio
 ->$(exists:true):db.practice.find({age:{$exists:true}}).projection({age:1})je sob data te age exist kore
 ->$(exists:false):db.practice.find({phone:{$exists:false}})je sob data te phone exist kore na
 ->$type:db.practice.find({age:{$type:'string'}})je sob age er type string
-->$size:db.practice.find({skills:{$size:0}})je sob data te skill e kono info nai mane empty array 
-->$size:db.practice.find({skills:{$size:1}})je sob data te skill e akta element thake array te
-->$size:db.practice.find({interests:"Travelling"})je sob data te interests array te Travelling thake
-->$size:db.practice.find({"interests.0":"Travelling"})je sob data te interests array te first position e Travelling thake
+->$size:db.practice.find({skills:{$size:0}}).project({skills:1})je sob data te skill e kono info nai mane empty array 
+->$size:db.practice.find({skills:{$size:1}}).project({skills:1})je sob data te skill e akta element thake array te
+->$size:db.practice.find({interests:"Travelling"}).project({skills:1}) je sob data te interests array te Travelling thake
+->$size:db.practice.find({"interests.0":"Travelling"}).project({interests:1})je sob data te interests array te first position e Travelling thake
+->$size:db.practice.find({"interests.1":"Travelling"}).project({interests:1})je sob data te interests array te second position e Travelling thake
+->$size:db.practice.find({interests:["Cooking","Travelling","Reading"]}).project({interests:1})je sob data te interests array ta exact evabe achhe
+->$size:db.practice.find({interests:{$all:["Travelling","Cooking","Reading"]}}).project({interests:1})je sob data te interests array te j kono position e Travelling,Cooking,Reading thake
+->$size:db.practice.find({$and:[{interests:"Travelling"},{interests:"Cooking"},{interests:"Reading"}]}).project({interests:1})je sob data te interests array te j kono position e Travelling,Cooking,Reading thake
+->$size:db.practice.find({skills:{$elemMatch:{name:"JAVA",level:"intermidiate"}}}).project({skills:1})je sob data te skills array of object e name r level er value JAVA and intermidiate hobe
 
 */
