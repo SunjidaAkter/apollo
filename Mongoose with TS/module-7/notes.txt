@@ -4,6 +4,15 @@ mongosh command
 ->use collection-name
 ->db.getCollection("practice").find().limit(2)
 */
+
+/*
 cross-platform GUI (Graphical User Interface) tools for MongoDB
 ->Studion 3T
 ->No SQL Booster
+*/
+
+/*
+query and projection operator of mongoose//query operator dite hole sob somoi curly braces use korte hoi
+->$eq:db.practice.find({<field>:{$eq:<value>}})
+->$ne:db.practice.find({<field>:{$ne:<value>}})
+*/
