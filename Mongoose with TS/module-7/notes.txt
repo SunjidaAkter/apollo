@@ -13,21 +13,29 @@ cross-platform GUI (Graphical User Interface) tools for MongoDB
 
 /*
 query and projection operator of mongoose//query operator dite hole sob somoi curly braces use korte hoi
+
+/********************
+kono data khujte hole
+db.practice.find({})
+*********************/
+
+/***find er jonno ei query gula***/
+
 ->$eq:db.practice.find({<field>:{$eq:<value>}})
 ->$eq:db.practice.find({<field>:{$eq:<value>}},{<field>:1})//datar khali akta field e show korbe,r je field er value milbe just sei data gulai asbe
 ->$eq:db.practice.find({<field>:{$eq:<value>}}).projection({<field>:1})//uporer tar poriborte eta dileo ak e kaj hobe
 ->$ne:db.practice.find({<field>:{$ne:<value>}})
-->$ne:db.practice.find({<field>:{$gt:<value>}})
-->$ne:db.practice.find({<field>:{$gte:<value>}})
-->$ne:db.practice.find({<field>:{$lt:<value>}})
-->$ne:db.practice.find({<field>:{$lte:<value>}})
-->$ne:db.practice.find({<field>:{$lte:<value>}}).projection({<field>:1}).sort({age:1})//ascending mane chhoto theke boro vabe sorting hobe
-->$ne:db.practice.find({<field>:{$lte:<value>}}).projection({<field>:1}).sort({age:-1})//descending mane boro theke chhoto vabe sorting hobe
+->$gt:db.practice.find({<field>:{$gt:<value>}})
+->$gte:db.practice.find({<field>:{$gte:<value>}})
+->$lt:db.practice.find({<field>:{$lt:<value>}})
+->$lte:db.practice.find({<field>:{$lte:<value>}})
+->$lte:db.practice.find({<field>:{$lte:<value>}}).projection({<field>:1}).sort({age:1})//ascending mane chhoto theke boro vabe sorting hobe
+->$lte:db.practice.find({<field>:{$lte:<value>}}).projection({<field>:1}).sort({age:-1})//descending mane boro theke chhoto vabe sorting hobe
 projection er vitore dui tinta field o chaile nea jai
-->$ne:db.practice.find({<field>:{$gt:<value>,$lt:<value>}})
-->$ne:db.practice.find({<field>:{$int:[<value>,<value>,<value>]}})
-->$ne:db.practice.find({<field>:<value>,<field>:{$nin:[<value1>,<value2>,<value3>]}})//only field er value value1,value2,value3 jukto data gula drkr na hoilei ei operator 
-->$ne:db.practice.find({gender:"Female",age:{$in:[18,23]}})//only 18,23 age er female gula drkr hoilei ei operator 
+->$lt,$gt:db.practice.find({<field>:{$gt:<value>,$lt:<value>}})
+->$in:db.practice.find({<field>:{$in:[<value>,<value>,<value>]}})
+->$nin:db.practice.find({<field>:<value>,<field>:{$nin:[<value1>,<value2>,<value3>]}})//only field er value value1,value2,value3 jukto data gula drkr na hoilei ei operator 
+->$in:db.practice.find({gender:"Female",age:{$in:[18,23]}})//only 18,23 age er female gula drkr hoilei ei operator 
 ekhane koma die dui tinta field disi, ei system ta ke bole implicit and condition, duita different field er khetre ei implicit use kora jai, kintu ak e field e duita condition dite chaile $and operator use korte hobe eta k abar explicit and condition bole
 ->$and:db.practice.find({$and:[{gender:"Female"},{age:{$lt:30}}]}).projection({gender:1,age:1})Female lagbe jader age 18 er chhoto
 ->$and:db.practice.find({$and:[{gender:"Female"},{age:{$lt:30}},{"skills.name":"JAVASCRIPT"}]}).projection({gender:1,age:1})Female lagbe jader age 18 er chhoto and skill akta array of object, oi skill er modhe theke name ta nite hobe jar value JAVASCRIPT
@@ -37,12 +45,27 @@ ekhane koma die dui tinta field disi, ei system ta ke bole implicit and conditio
 ->$type:db.practice.find({age:{$type:'string'}})je sob age er type string
 ->$size:db.practice.find({skills:{$size:0}}).project({skills:1})je sob data te skill e kono info nai mane empty array 
 ->$size:db.practice.find({skills:{$size:1}}).project({skills:1})je sob data te skill e akta element thake array te
-->$size:db.practice.find({interests:"Travelling"}).project({skills:1}) je sob data te interests array te Travelling thake
-->$size:db.practice.find({"interests.0":"Travelling"}).project({interests:1})je sob data te interests array te first position e Travelling thake
-->$size:db.practice.find({"interests.1":"Travelling"}).project({interests:1})je sob data te interests array te second position e Travelling thake
-->$size:db.practice.find({interests:["Cooking","Travelling","Reading"]}).project({interests:1})je sob data te interests array ta exact evabe achhe
-->$size:db.practice.find({interests:{$all:["Travelling","Cooking","Reading"]}}).project({interests:1})je sob data te interests array te j kono position e Travelling,Cooking,Reading thake
-->$size:db.practice.find({$and:[{interests:"Travelling"},{interests:"Cooking"},{interests:"Reading"}]}).project({interests:1})je sob data te interests array te j kono position e Travelling,Cooking,Reading thake
-->$size:db.practice.find({skills:{$elemMatch:{name:"JAVA",level:"intermidiate"}}}).project({skills:1})je sob data te skills array of object e name r level er value JAVA and intermidiate hobe
+->$:db.practice.find({interests:"Travelling"}).project({skills:1}) je sob data te interests array te Travelling thake
+->$:db.practice.find({"interests.0":"Travelling"}).project({interests:1})je sob data te interests array te first position e Travelling thake
+->$:db.practice.find({"interests.1":"Travelling"}).project({interests:1})je sob data te interests array te second position e Travelling thake
+->$:db.practice.find({interests:["Cooking","Travelling","Reading"]}).project({interests:1})je sob data te interests array ta exact evabe achhe
+->$all:db.practice.find({interests:{$all:["Travelling","Cooking","Reading"]}}).project({interests:1})je sob data te interests array te j kono position e Travelling,Cooking,Reading thake
+->$and:db.practice.find({$and:[{interests:"Travelling"},{interests:"Cooking"},{interests:"Reading"}]}).project({interests:1})je sob data te interests array te j kono position e Travelling,Cooking,Reading thake
+->$elemMatch:db.practice.find({skills:{$elemMatch:{name:"JAVA",level:"intermidiate"}}}).project({skills:1})je sob data te skills array of object e name r level er value JAVA and intermidiate hobe
+
+/****************************
+kono akta data update korte hole
+db.practice.updateOne({kake update korte hobe},{ki update korte hobe},{options}) 
+*****************************/
+/***find er jonno ei query gula***/
+
+-> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$set:{country:"Bangladesh"}})
+-> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$set:{interests:["Travelling"]}})interests change kore Travelling,Cooking r Reading er jaigai just Travelling update kore dise
+-> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:["Reading"]}})interests change kore Travelling to chiloi sathe ["Reading"] add hoise 
+-> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:"Reading"}})interests change kore Travelling,["Reading"] to chiloi sathe "Reading" add hoise 
+-> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:{$each:["Cooking","Writing"]}}})interests change kore Travelling,["Reading"],"Reading" to chiloi sathe "Cooking","Writing" add hoise 
+-> db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$addToSet:{interests:{$each:["Cooking","Writing"]}}})interests e jodi age theke "Cooking","Gaming" thake tahole age theke Cooking thakar karone Cooking r add hobe na just writing add hobe
+-> db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$push:{interests:{$each:["Cooking","Writing"]}}})interests e jodi age theke "Cooking","Gaming" thake tahole age theke Cooking thakar karone j Cooking r add hobe na ta na, push jor kore Cooking writing add hobe
 
 */
+
