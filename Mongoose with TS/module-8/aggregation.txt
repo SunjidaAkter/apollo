@@ -1,0 +1,74 @@
+db.practice.aggregate([
+   //stage project
+    {$project:{gender:1,age:1}},
+   //stage Match
+    {$match:{gender:'Male',age:{$gt:18}}}//project e ja achhe match e tai nite hobe, tobe match stage ta age dea valo
+])
+
+
+
+
+db.practice.aggregate([//aggregate die field add kora jai na vabsilam but kora jai merge use kore, tobuo $out use kore notun collection banaisi jar nam salaryWithPractice jetate salary field thakbe  
+   //stage addField
+    {$addFields:{
+        salary:{
+            $toInt:{
+                $floor:{
+                    $multiply:[{$rand:{}},100]
+                }
+            }
+        }
+    }},
+   //stage project
+    {$project:{salary:1}},//project na dile sob field add hoito salary soho
+    {$out:"salaryWithPractice"}
+   ])
+
+
+
+
+
+db.practice.aggregate([//aggregate die evabe salary field add kora jai
+   //stage addField
+    {$addFields:{
+        salary:{
+            $toInt:{
+                $floor:{
+                    $multiply:[{$rand:{}},100]
+                }
+            }
+        }
+    }},
+   //stage Merge
+    {$merge:"practice"}
+   ])
+
+
+
+
+db.practice.aggregate([
+   //stage Group
+    {$group:{_id:"$gender"}},//koto gula different type er gender achhe segula show korbe
+   ])
+
+
+
+
+db.practice.aggregate([//multiple group
+   //stage Group
+    {$group:{_id:"$age",gender:"gender"}},//koto gula different type er age r gender achhe segula show korbe
+   ])
+
+
+
+
+db.practice.aggregate([//multiple group
+   //stage Group
+    {$group:{_id:{
+        age:{$age}
+        gender:{$gender}
+    }}},//koto gula different type er age r gender er combination achhe segula show korbe
+   ])
+
+
+//Mockery fake data make korar site   
