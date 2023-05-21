@@ -5,11 +5,15 @@ mongosh command
 ->db.getCollection("practice").find().limit(2)
 */
 
+
+
 /*
 cross-platform GUI (Graphical User Interface) tools for MongoDB
 ->Studion 3T
 ->No SQL Booster
 */
+
+
 
 /*
 query and projection operator of mongoose//query operator dite hole sob somoi curly braces use korte hoi
@@ -53,19 +57,74 @@ ekhane koma die dui tinta field disi, ei system ta ke bole implicit and conditio
 ->$and:db.practice.find({$and:[{interests:"Travelling"},{interests:"Cooking"},{interests:"Reading"}]}).project({interests:1})je sob data te interests array te j kono position e Travelling,Cooking,Reading thake
 ->$elemMatch:db.practice.find({skills:{$elemMatch:{name:"JAVA",level:"intermidiate"}}}).project({skills:1})je sob data te skills array of object e name r level er value JAVA and intermidiate hobe
 
+
+
+
+
 /****************************
 kono akta data update korte hole
 db.practice.updateOne({kake update korte hobe},{ki update korte hobe},{options}) 
 *****************************/
-/***find er jonno ei query gula***/
+/***updateOne er jonno ei query gula***/
 
--> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$set:{country:"Bangladesh"}})
--> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$set:{interests:["Travelling"]}})interests change kore Travelling,Cooking r Reading er jaigai just Travelling update kore dise
--> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:["Reading"]}})interests change kore Travelling to chiloi sathe ["Reading"] add hoise 
--> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:"Reading"}})interests change kore Travelling,["Reading"] to chiloi sathe "Reading" add hoise 
--> db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:{$each:["Cooking","Writing"]}}})interests change kore Travelling,["Reading"],"Reading" to chiloi sathe "Cooking","Writing" add hoise 
--> db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$addToSet:{interests:{$each:["Cooking","Writing"]}}})interests e jodi age theke "Cooking","Gaming" thake tahole age theke Cooking thakar karone Cooking r add hobe na just writing add hobe
--> db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$push:{interests:{$each:["Cooking","Writing"]}}})interests e jodi age theke "Cooking","Gaming" thake tahole age theke Cooking thakar karone j Cooking r add hobe na ta na, push jor kore Cooking writing add hobe
+-> $set : db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$set:{country:"Bangladesh"}})
+-> $set :db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$set:{interests:["Travelling"]}})interests change kore Travelling,Cooking r Reading er jaigai just Travelling update kore dise
+-> $addToSet :db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:["Reading"]}})interests change kore Travelling to chiloi sathe ["Reading"] add hoise 
+-> $addToSet :db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:"Reading"}})interests change kore Travelling,["Reading"] to chiloi sathe "Reading" add hoise 
+-> $addToSet :db.practice.updateOne({_id: ObjectId("ry4636n4646n46")},{$addToSet:{interests:{$each:["Cooking","Writing"]}}})interests change kore Travelling,["Reading"],"Reading" to chiloi sathe "Cooking","Writing" add hoise 
+-> $addToSet :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$addToSet:{interests:{$each:["Cooking","Writing"]}}})interests e jodi age theke "Cooking","Gaming" thake tahole age theke Cooking thakar karone Cooking r add hobe na just writing add hobe
+-> $push :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$push:{interests:{$each:["Cooking","Writing"]}}})interests e jodi age theke "Cooking","Gaming" thake tahole age theke Cooking thakar karone j Cooking r add hobe na ta na, push jor kore Cooking writing add hobe
+-> $unset :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$unset:{occupation:""}})occupation e kono kichhu thakle seta k muchhe faka kore puro occupation kei nai kore dibe
+-> $unset :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$unset:{education:1}})education e kono kichhu thakle seta k muchhe faka kore puro education kei nai kore dibe
+-> $pop :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$pop:{languages:1}})languages array er last element pop out mane nai hoe jabe
+-> $pop :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$pop:{languages:-1}})languages array er first element pop out mane nai hoe jabe
+-> $pull :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$pull:{friends:"Abdur Rakib"}})friends array er Abdur Rakib value er element pop out mane nai hoe jabe
+-> $pullAll :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$pullAll:{friends:["Najmus Sakib","Mir Hussain"]}})friends array er Najmus Sakib and Mir Hussain value er element pop out mane nai hoe jabe
+-> $pullAll :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$inc:{age:1}})age ak bochhor bere jabe
+-> $inc :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$inc:{age:2}})age dui bochhor bere jabe
+
+
+
+
+/****************************
+onk data aksathe update korte hole
+db.practice.updateMany({kake update korte hobe},{ki update korte hobe},{options}) 
+*****************************/
+/***updateMany er jonno ei query gula***/
+
+-> $pullAll :db.practice.updateMany({},{$pullAll:{friends:["Najmus Sakib","Mir Hussain"]}})sob data er friends array er Najmus Sakib and Mir Hussain value er element pop out mane nai hoe jabe
+-> $rename :db.practice.updateMany({},{$rename:{"favoutiteColor":"favouriteColor"}})age dui bochhor bere jabe
+
+
+
+
+/****************************
+akta data delete korte hole
+db.practice.deleteOne({kake delete korte hobe}) 
+*****************************/
+
+->db.practice.deleteOne({_id: ObjectId("ry4636n4646n46")})ei data delete hoar operator
+
+/******************************
+collection create korar command
+->db.createCollection('test')test namer collection create er command
+collection e data insert korar command
+->db.test.insert({name:"sun"})//{"name":"sun"} amon akta data insert hoise test namer collection er vitor
+collection delete korar command
+->db.test.drop()
+database delete korar command
+use mydatabase  // Switch to the database you want to delete
+db.dropDatabase()
+******************************/
+
+
+
+
+/******************************
+kono datar kono value baranor query
+******************************/
+
+
 
 */
 
