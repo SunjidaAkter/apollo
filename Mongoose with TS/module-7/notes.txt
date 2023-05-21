@@ -82,7 +82,7 @@ db.practice.updateOne({kake update korte hobe},{ki update korte hobe},{options})
 -> $pullAll :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$pullAll:{friends:["Najmus Sakib","Mir Hussain"]}})friends array er Najmus Sakib and Mir Hussain value er element pop out mane nai hoe jabe
 -> $pullAll :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$inc:{age:1}})age ak bochhor bere jabe
 -> $inc :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$inc:{age:2}})age dui bochhor bere jabe
--> $min :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{min:{age:2}})age dui bochhor bere jabe
+-> $min :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$set:{minAge:16}})minAge er value 16 set hobe
 
 
 
@@ -95,6 +95,8 @@ db.practice.updateMany({kake update korte hobe},{ki update korte hobe},{options}
 
 -> $pullAll :db.practice.updateMany({},{$pullAll:{friends:["Najmus Sakib","Mir Hussain"]}})sob data er friends array er Najmus Sakib and Mir Hussain value er element pop out mane nai hoe jabe
 -> $rename :db.practice.updateMany({},{$rename:{"favoutiteColor":"favouriteColor"}})age dui bochhor bere jabe
+-> $set :db.practice.updateMany({},{$set:{minAge:18}})sob data te notun akta minAge name field add hoise
+-> $min :db.practice.updateMany({},{$min:{minAge:18}})eta korle kaj hobe na karon already min age er value 16 set kora hoise. kintu age theke jodi 16 na thakto suppose kono ta 26 thaklo tahole min queryr jonno 26 hoe jabe 18, r age theke jodi minAge na thakto tahole ei command er jonno minAge 16 hoe jeto 
 
 
 
