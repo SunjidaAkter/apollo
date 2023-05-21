@@ -82,6 +82,7 @@ db.practice.updateOne({kake update korte hobe},{ki update korte hobe},{options})
 -> $pullAll :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$pullAll:{friends:["Najmus Sakib","Mir Hussain"]}})friends array er Najmus Sakib and Mir Hussain value er element pop out mane nai hoe jabe
 -> $pullAll :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$inc:{age:1}})age ak bochhor bere jabe
 -> $inc :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{$inc:{age:2}})age dui bochhor bere jabe
+-> $min :db.practice.updateOne({_id: ObjectId("4w53b4tb4tb4t4")},{min:{age:2}})age dui bochhor bere jabe
 
 
 
@@ -118,11 +119,6 @@ db.dropDatabase()
 ******************************/
 
 
-
-
-/******************************
-kono datar kono value baranor query
-******************************/
 
 
 
