@@ -71,4 +71,13 @@ db.practice.aggregate([//multiple group
    ])
 
 
+
+
+
+db.practice.aggregate([//multiple group
+   //stage Group
+    {$group:{_id:null}},//sob gulare akta group er under korse
+   ])
+
+
 //Mockery fake data make korar site   
